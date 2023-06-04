@@ -1,4 +1,4 @@
-# EXPERIMENT-NO--04-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resistor
+# EXPERIMENT-NO--03-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resistor
 
 
 ## AIM: 
@@ -34,9 +34,10 @@ FSRs are often a polymer with conductive material silk-screened on. That means t
 
 The easiest way to measure a resistive sensor is to connect one end to power and the other to a pull-down resistor to ground. Then the point between the fixed pull down resistor and the variable FSR resistor is connected to the analog input of a microcontroller such as an Arduino The way this works is that as the resistance of the FSR decreases, the total resistance of the FSR and the pull down resistor decreases from about 100Kohm to 10Kohm. That means that the current flowing through both resistors increases which in turn causes the voltage across the fixed 10K resistor to increase.
 
- ![image](https://user-images.githubusercontent.com/36288975/163532972-2b909551-12c9-485d-adb1-d1e988d557bd.png)
 
 ### TABLE -01 FORCE AND OUTPUT VOLTAGES**
+
+![image](https://user-images.githubusercontent.com/36288975/163532972-2b909551-12c9-485d-adb1-d1e988d557bd.png)
 	
   Table -01 indicates the approximate analog voltage based on the sensor force/resistance w/a 5V supply and 10K pull down resistor.
 
@@ -53,12 +54,9 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 
 
 
+### FIGURE-03 CIRCUIT DIAGRAM:
 
 ![image](https://user-images.githubusercontent.com/36288975/163532979-a2a5cb5c-f495-442c-843e-bebb82737a35.png)
-
-
-
-### FIGURE-03 CIRCUIT DIAGRAM
 
 
 
@@ -75,30 +73,72 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 10.	Plot the graph for the output voltage vs the resistance 
 
 
-### PROGRAM 
- *your roll no 
- * your name 
- * department and year 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+### PROGRAM:
+```
+   Developed by : Samuel M
+   Ref no: 212222040142
+   Department: B.E/ Computer Science Engineering.
+
+#define fsrpin A0
+#define led1 2
+#define led2 3
+#define led3 4
+#define led4 5
+#define led5 6
+#define led6 7
+
+int fsrreading;
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(led1,OUTPUT);
+  pinMode(led2,OUTPUT);
+  pinMode(led3,OUTPUT);
+  pinMode(led4,OUTPUT);
+  pinMode(led5,OUTPUT);
+  pinMode(led5,OUTPUT);
+  pinMode(led6,OUTPUT);
+}
+void loop()
+{
+  fsrreading = analogRead(fsrpin);
+  Serial.println(fsrreading);
+  if(fsrreading>150)
+  {
+    digitalWrite(led1,HIGH);
+  }
+  else digitalWrite(led1,LOW);
+  if(fsrreading>300)
+  {
+    digitalWrite(led2,HIGH);
+  }
+  else digitalWrite(led2,LOW);
+  if(fsrreading>450)
+  {
+    digitalWrite(led3,HIGH);
+  }
+  else digitalWrite(led3,LOW);
+  if(fsrreading>600)
+  {
+    digitalWrite(led4,HIGH);
+  }
+  else digitalWrite(led4,LOW);
+  if(fsrreading>750)
+  {
+    digitalWrite(led5,HIGH);
+  }
+  else digitalWrite(led5,LOW);
+  if(fsrreading>900)
+  {
+    digitalWrite(led6,HIGH);
+  }
+  else digitalWrite(led6,LOW);
+}
+```
+
  
 
-![image](https://user-images.githubusercontent.com/36288975/188804653-a3154e8e-2655-46f2-9dcd-f425dd1ba109.png)
-
-
-### TABLE -02 standard deviation table 
+ 
 ### Population Standard Deviation
 The population standard deviation, the standard definition of σ, is used when an entire population can be measured, and is the square root of the variance of a given data set. In cases where every member of a population can be sampled, the following equation can be used to find the standard deviation of the entire population:
 
@@ -117,16 +157,21 @@ EX:           μ = (1+3+4+7+8) / 5 = 4.6
 
 
 
+### OUTPUT:
+
+#### BEFORE SIMULATION:
+
+![ex3 1](https://github.com/Samuelmariappan/EXPERIMENT-NO--04-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resist/assets/119393030/c063f4bb-3f6e-48ef-a24b-8e1389827e3c)
+
+
+#### AFTER SIMULATION
+
+![ex3 2](https://github.com/Samuelmariappan/EXPERIMENT-NO--04-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resist/assets/119393030/4f729b0c-60c0-480a-9b62-468342ef227e)
 
 
 
 
 
 
-
-
-
-
-
-
-### RESULTS : Arduino uno is interfaced with FSR and output values are indicated on a graph.
+### RESULT: 
+Arduino uno is interfaced with FSR and output values are indicated on a graph.
